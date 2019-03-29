@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Experimente!</title>
+</head>
+<body>
+
+<h2>Increasing a number with setInterval</h2>
+Number: <span id="counter">0</span>
+
+<script>
+
+	var counterElem = document.getElementById('counter');
+var toAdd = 0.50;
+var ms = 20 * 60;
+setInterval(function() {
+	var count = parseFloat(counterElem.innerHTML);
+	counterElem.innerHTML = (!isNaN(count) == true ? count + toAdd : toAdd);
+}, ms);
+
+
+
+</script>
+<br>
+<br>
+<button>Click Me!</button>
+
+</body>
+</html>
