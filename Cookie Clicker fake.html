@@ -35,13 +35,13 @@
 	setInterval(function() {
 		counter = counter + toAdd;
 		highscore();
-		document.getElementById('count').innerHTML = counter;
+		document.getElementById('count').innerHTML = "Cookies: " + counter;
 	}, (s * 600));
 
 	function count() {
 		counter = counter + proKlick;
 		highscore();
-		document.getElementById('count').innerHTML = counter;
+		document.getElementById('count').innerHTML = "Cookies: " + counter;
 	}
 
 	function upgradeKlick() {
@@ -49,7 +49,7 @@
 			proKlick = proKlick + 1;
 			counter = counter - 50;
 			updateText();
-			document.getElementById('count').innerHTML = counter
+			document.getElementById('count').innerHTML = "Cookies: " + counter;
 		}
 	}
 
@@ -57,7 +57,7 @@
 		proKlick = 1;
 		counter = 0;
 		toAdd = 0.50;
-		document.getElementById('count').innerHTML = counter;
+		document.getElementById('count').innerHTML = "Cookies: " + counter;
 	}
 
 	function upgradeCPS() {
@@ -65,7 +65,7 @@
 			toAdd = toAdd + 0.5;
 			counter = counter - 50;
 			updateText();
-			document.getElementById('count').innerHTML = counter;
+			document.getElementById('count').innerHTML = "Cookies: " + counter;
 		}
 	}
 
@@ -92,7 +92,7 @@
 
 </script>
 
-<p style="font-size:40px" id="count">0</p>
+<p style="font-size:40px" id="count">Counter: 0</p>
 <br>
 
 <button style="height: 50px; width: 80px;" onclick="count()">Click me!</button>
