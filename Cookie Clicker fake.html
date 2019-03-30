@@ -11,7 +11,6 @@
 			font-size: 30px;
 			color: white;
 		}
-
 	
 	</style>
 
@@ -30,69 +29,63 @@
 	var counter = 0;
 	var toAdd = 0.50;
 	var s = 2;
-
-
+	var costs = 50; 
 	setInterval(function() {
 		counter = counter + toAdd;
 		highscore();
 		document.getElementById('count').innerHTML = "Cookies: " + counter;
 	}, (s * 600));
-
 	function count() {
 		counter = counter + proKlick;
 		highscore();
 		document.getElementById('count').innerHTML = "Cookies: " + counter;
 	}
-
 	function upgradeKlick() {
 		if (canUpgrade()) {
 			proKlick = proKlick + 1;
-			counter = counter - 50;
+			counter = counter - costs;
 			updateText();
 			document.getElementById('count').innerHTML = "Cookies: " + counter;
 		}
 	}
-
 	function resetAll() {
 		proKlick = 1;
 		counter = 0;
 		toAdd = 0.50;
+		costs = 50
 		document.getElementById('count').innerHTML = "Cookies: " + counter;
 	}
-
 	function upgradeCPS() {
 		if (canUpgrade()) {
 			toAdd = toAdd + 0.5;
-			counter = counter - 50;
+			counter = counter - costs;
 			updateText();
 			document.getElementById('count').innerHTML = "Cookies: " + counter;
 		}
 	}
-
 	function canUpgrade() {
-		if (counter > 50) {
+		if (counter > costs) {
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
-
 	function updateText() {
 		document.getElementById('text').innerHTML = "Cookies per second: " + toAdd + "<br><br> Cookies per click: " + proKlick;
 	}
-
 	function highscore() {
 		if (counter > currenthigh) {
 			currenthigh = counter;
 			document.getElementById('highscore').innerHTML = "Current Highscore: " + currenthigh;
 		}
-		
 	}
+
+	
 
 </script>
 
-<p style="font-size:40px" id="count">Counter: 0</p>
+<p style="font-size:40px" id="count">Cookies: 0</p>
 <br>
 
 <button style="height: 50px; width: 80px;" onclick="count()">Click me!</button>
@@ -115,9 +108,9 @@
 
 <hr>
 
-<p>50 Cookies for +0.5 Cookies per second!</p>
+<p id="moreCosts">50 Cookies for +0.5 Cookies per second!</p>
 
-<p>50 Cookies for + 1 Cookie per click!</p>
+<p id="moreCosts">50 Cookies for + 1 Cookie per click!</p>
 
 </body>
 </html>
