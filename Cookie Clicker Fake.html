@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cookie Clicker Fake!</title>
+
+	<style type="text/css">
+		body {
+			background-color: powderblue;
+			background-image: url("ccbg.jpg");
+			font-family: verdana;
+			font-size: 30px;
+			color: white;
+		}
+	
+	</style>
+
+</head>
+
+
+
+
+<body>
+
+<audio id="myAudio">
+	<source src="Editor_8_.ogg" type="audio/ogg">
+</audio>
+
+<h1 style="font-size: 50px">Cookie Clicker Fake! (von Mark Brudlo, Praktikant bei Fichtner)</h1>
+
+<script>
+	var vid = document.getElementById("myAudio");
+	var audio = document.getElementById("myAudio");
+	var proKlick = 1;
+	var currenthigh = 0;
+	var counter = 0;
+	var toAdd = 0.50;
+	var s = 2;
+	var costs = 50;
+	var costs1 = 50; 
+	setInterval(function() {
+		counter = counter + toAdd;
+		highscore();
+		document.getElementById('count').innerHTML = "Cookies: " + counter;
+	}, (s * 600));
+	function count() {
+		counter = counter + proKlick;
+		highscore();
+		document.getElementById('count').innerHTML = "Cookies: " + counter;
+	}
+	function upgradeKlick() {
+		if (canUpgrade()) {
+			proKlick = proKlick + 1;
+			counter = counter - costs;
+			costs = costs + 25;
+			moreCosts();
+			updateText();
+			document.getElementById('count').innerHTML = "Cookies: " + counter;
+		}
+	}
+	function resetAll() {
+		proKlick = 1;
+		counter = 0;
+		toAdd = 0.50;
+		costs = 50;
+		costs1 = 50;
+		document.getElementById('count').innerHTML = "Cookies: " + counter;
+		document.getElementById('moreCosts').innerHTML = costs1 + " Cookies for +0.5 Cookies per second!<br><br>" + costs + " Cookies for +1 Cookie per click!"
+	}
+	function upgradeCPS() {
+		if (canUpgrade()) {
+			toAdd = toAdd + 0.5;
+			counter = counter - costs1;
+			costs1 = costs1 + 25;
+			moreCosts();
+			updateText();
+			document.getElementById('count').innerHTML = "Cookies: " + counter;
+		}
+	}
+	function canUpgrade() {
+		if (counter > costs) {
+			return true;
+		}
+		if (counter > costs1) {
+			return true;
+		}
+		else {
+			alert("NOT ENOUGH COOKIES!")
+			return false;
+		}
+	}
+	function updateText() {
+		document.getElementById('text').innerHTML = "Cookies per second: " + toAdd + "<br><br> Cookies per click: " + proKlick;
+	}
+	function highscore() {
+		if (counter > currenthigh) {
+			currenthigh = counter;
+			document.getElementById('highscore').innerHTML = "Current Highscore: " + currenthigh;
+		}
+	}
+
+	function moreCosts() {
+		document.getElementById('moreCosts').innerHTML = costs1 + " Cookies for +0.5 Cookies per second!<br><br>" + costs + " Cookies for +1 Cookie per click!"
+	}
+
+	function playAudio() {
+		audio.play();
+	}
+
+	function lowerVolume() {
+		vid.volume = 0.4;
+	}
+
+</script>
+
+<p style="font-size:40px" id="count">Cookies: 0</p>
+<br>
+
+<button onclick="count();playAudio();lowerVolume();" style="height: 70px; width: 100px;">Click me!</button>
+
+<br>
+
+<button onclick="upgradeKlick()" style="height: 70px; width: 100px;">Upgrade your clicks!</button>
+<br>
+
+<button onclick="upgradeCPS()" style="height: 70px; width: 100px;">Upgrade CPS!</button>
+<br>
+
+<button style="height: 70px; width: 100px;" onclick="resetAll()">Reset Game!</button>
+<br>
+
+<p id="highscore">Current Highscore: 0</p>
+
+<p id="text">Cookies per second: 0.5<br><br>Cookies per click: 1</p>
+
+<hr>
+
+<p id="moreCosts">50 Cookies for +0.5 Cookies per second!<br><br>50 Cookies for +1 Cookie per click!</p>
+
+</body>
+</html>
