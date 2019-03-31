@@ -107,7 +107,7 @@
 	}
 
 	function lowerVolume() {
-		vid.volume = 0.4;
+		vid.volume = 0.3;
 	}
 
 </script>
@@ -119,13 +119,13 @@
 
 <br>
 
-<button onclick="upgradeKlick()" style="height: 70px; width: 100px;">Upgrade your clicks!</button>
+<button onclick="playAudio();lowerVolume();upgradeKlick()" style="height: 70px; width: 100px;">Upgrade your clicks!</button>
 <br>
 
-<button onclick="upgradeCPS()" style="height: 70px; width: 100px;">Upgrade CPS!</button>
+<button onclick="playAudio();lowerVolume();upgradeCPS()" style="height: 70px; width: 100px;">Upgrade CPS!</button>
 <br>
 
-<button style="height: 70px; width: 100px;" onclick="resetAll()">Reset Game!</button>
+<button style="height: 70px; width: 100px;" onclick="playAudio();lowerVolume();resetAll()">Reset Game!</button>
 <br>
 
 <p id="highscore">Current Highscore: 0</p>
